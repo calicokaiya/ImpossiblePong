@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx4y4agnvf426"]
+
+[ext_resource type="Script" path="res://Debugging/Ball_Ghost.gd" id="1_sds60"]
+
+[node name="Ball" type="Area2D"]
+position = Vector2(586, 336)
+script = ExtResource("1_sds60")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0.454902)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

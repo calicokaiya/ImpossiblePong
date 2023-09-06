@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvg8inrqmsevk"]
+
+[ext_resource type="Script" path="res://Ball/Ball.gd" id="1_k8rqc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ab0fm"]
+size = Vector2(40, 40)
+
+[node name="Ball" type="Area2D"]
+script = ExtResource("1_k8rqc")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_ab0fm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BallStartTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="IncreaseBallSpeedTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="BallStartTimer" to="." method="_on_ball_start_timer_timeout"]
+[connection signal="timeout" from="IncreaseBallSpeedTimer" to="." method="_on_increase_ball_speed_timer_timeout"]

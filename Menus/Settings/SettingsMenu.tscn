@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpdor3up7vis7"]
+
+[ext_resource type="Script" path="res://Menus/Settings/SettingsMenu.gd" id="1_clull"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_clull")
+
+[node name="Ball Speed" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.5
+offset_top = -93.0
+offset_right = 99.5
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Ball Speed
+"
+
+[node name="Settings" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.5
+offset_top = -331.0
+offset_right = 116.5
+offset_bottom = -245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Settings"
+
+[node name="CurrentSpeedHSlider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -27.0
+offset_right = 168.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 100.0
+max_value = 2000.0
+step = 100.0
+value = 100.0
+tick_count = 20
+ticks_on_borders = true
+
+[node name="CurrentSpeedLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 178.0
+offset_top = -30.0
+offset_right = 218.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "500"
+
+[node name="SaveSettingsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.5
+offset_top = 208.5
+offset_right = 130.5
+offset_bottom = 271.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Save Settings"
+
+[connection signal="drag_ended" from="CurrentSpeedHSlider" to="." method="_on_current_speed_h_slider_drag_ended"]
+[connection signal="value_changed" from="CurrentSpeedHSlider" to="." method="_on_current_speed_h_slider_value_changed"]
+[connection signal="pressed" from="SaveSettingsButton" to="." method="_on_save_settings_button_pressed"]

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b8803ltvkyfen"]
+
+[node name="GameHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="PlayerScore" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -332.5
+offset_top = 24.0
+offset_right = -309.5
+offset_bottom = 82.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="AIScore" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 340.0
+offset_top = 24.0
+offset_right = 380.0
+offset_bottom = 82.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="CurrentSpeed" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.5
+offset_top = 627.0
+offset_right = 53.5
+offset_bottom = 672.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "SPEED: "

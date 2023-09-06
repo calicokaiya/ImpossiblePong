@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnbyhfrtt13oe"]
+
+[ext_resource type="Script" path="res://Menus/MainMenu/MainMenu.gd" id="1_ep6hm"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ep6hm")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 189.0
+offset_right = 892.0
+offset_bottom = 275.0
+theme_override_font_sizes/font_size = 60
+text = "IMPOSSIBLE PONG"
+
+[node name="StartGame" type="Button" parent="."]
+layout_mode = 0
+offset_left = 569.0
+offset_top = 363.0
+offset_right = 671.0
+offset_bottom = 426.0
+theme_override_font_sizes/font_size = 40
+text = "Start"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 443.0
+offset_right = 699.0
+offset_bottom = 506.0
+theme_override_font_sizes/font_size = 40
+text = "Options"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 524.0
+offset_right = 776.0
+offset_bottom = 587.0
+theme_override_font_sizes/font_size = 40
+text = "Quit to Desktop
+"
+
+[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

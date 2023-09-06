@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://w4k81gd73bta"]
+
+[ext_resource type="Script" path="res://Main/Main.gd" id="1_si0rg"]
+[ext_resource type="PackedScene" uid="uid://q1ibub5ais7h" path="res://PlayerPaddle/PlayerPaddle.tscn" id="1_t8sns"]
+[ext_resource type="PackedScene" uid="uid://b8803ltvkyfen" path="res://Menus/GameHUD/GameHUD.tscn" id="2_t0hpn"]
+[ext_resource type="PackedScene" uid="uid://cb3w1j6wcd4mk" path="res://Menus/Pause/PauseMenu.tscn" id="4_fx3dv"]
+[ext_resource type="PackedScene" uid="uid://dfdbt6pfeqam0" path="res://AIPaddle/AIPaddle.tscn" id="4_vg2fn"]
+
+[node name="Node2D" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_si0rg")
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_fx3dv")]
+visible = false
+
+[node name="GameHUD" parent="." instance=ExtResource("2_t0hpn")]
+offset_left = 639.0
+offset_top = 13.0
+offset_right = 639.0
+offset_bottom = 13.0
+
+[node name="AIPaddle" parent="." instance=ExtResource("4_vg2fn")]
+
+[node name="GameResetTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="DespawnBallTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="PlayerPaddle" parent="." instance=ExtResource("1_t8sns")]
+
+[connection signal="timeout" from="GameResetTimer" to="." method="_on_game_reset_timer_timeout"]
+[connection signal="timeout" from="DespawnBallTimer" to="." method="_on_despawn_ball_timer_timeout"]
